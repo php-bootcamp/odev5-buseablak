@@ -9,9 +9,9 @@
 </head>
 <body>
     <div>
-        <a href="insert.php">Ürün Ekle<br></a>
-        <a href="categoryinsert.php">Kategori Ekle</a>
-        <a href="import.php">İçe Aktar</a>
+        <a href="insert.php"><button>Ürün Ekle</button><br></a>
+        <a href="categoryinsert.php"><button>Kategori Ekle</button></a><br>
+        <a href="import.php"><button>İçe Aktar</button></a>
         <form method="post" action="transfer.php"><button name="export" type="submit">Dışa Aktar</button>
         </form>
 
@@ -40,14 +40,14 @@
         $say = $sorgu->fetchColumn();
 
         if ($say=="0") {
-           echo "Kayıtlı Ürün Bulunmamaktadır!";
-       }
-       $product=$db->prepare("SELECT * from product");
-       $product->execute();
-       
-       while ($productlist=$product->fetch(PDO::FETCH_ASSOC)) { ?>
-           
-           
+         echo "Kayıtlı Ürün Bulunmamaktadır!";
+     }
+     $product=$db->prepare("SELECT * from product");
+     $product->execute();
+     
+     while ($productlist=$product->fetch(PDO::FETCH_ASSOC)) { ?>
+         
+         
 
         <tr>
         	<td><?php echo $productlist['product_id']; ?></td>
